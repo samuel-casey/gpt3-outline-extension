@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener(
     }
     
     if (request.message === 'alert') {
-      alert(content);
+      console.log(content);
     }
   }
 );

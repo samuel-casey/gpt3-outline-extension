@@ -67,6 +67,8 @@ const sendMessage = (content, type) => {
           console.log(response)
         },
       )
+
+      chrome.tabs.create({ url: content });
     }
   })
 }
@@ -113,7 +115,7 @@ const generateCompletionAction = async (url, info) => {
       console.log(str)
       const { id } = JSON.parse(str)
       console.log(id)
-      sendMessage(`Outline generated: ${webAppUrl}/${id}`, 'alert')
+      sendMessage(`${webAppUrl}/${id}`, 'alert', )
 
       if (done) {
         // The stream has been fully read
