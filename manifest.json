@@ -1,7 +1,7 @@
 {
     "name": "Outline",
-    "description": "Generate outlines and study guides from any web page",
-    "version": "1.0",
+    "description": "Streamline your research and writing process; generate Outlines for any article or webpage.",
+    "version": "0.1",
     "manifest_version": 3,
     "icons": {
         "48": "assets/Logo-48.png",

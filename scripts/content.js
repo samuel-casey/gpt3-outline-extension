@@ -1,53 +1,13 @@
-// Declare new function
-const insert = (content) => {
-  console.log('inserting content...');
-  // Find Calmly editor input section
-  const elements = document.getElementsByClassName('mw-headline');
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  // log content for debugging/support purposes while in alpha testing
+  const { content } = request;
 
-  if (elements.length === 0) {
-    return;
+  if (request.message === 'log') {
+    console.log(content);
+    sendResponse({ status: 'success; generating outline...' });
+  } else if (request.message === 'redirect') {
+    // redirect to the new outline from contextMenuServiceWorker.js
+    console.log('Outline generated; redirecting.', content);
+    sendResponse({ status: 'success; redirecting to: ', content });
   }
-
-  const element = elements[0];
-
-  // Grab the first p tag so we can replace it with injection
-  const pToRemove = element.childNodes[0];
-  pToRemove.remove();
-
-  // Split content by \n
-  const splitContent = content.split('\n');
-
-  // Wrap in p tags
-  splitContent.forEach((content) => {
-    const p = document.createElement('p');
-
-    if (content === '') {
-      const br = document.createElement('br');
-      p.appendChild(br);
-    } else {
-      p.textContent = content;
-    }
-
-    // Insert into HTML one at a time
-    element.appendChild(p);
-  });
-
-  // On success return true
-  return true;
-};
-
-chrome.runtime.onMessage.addListener(
-  // This is the message listener
-  (request, sender, sendResponse) => {
-    
-    const { content } = request;
-    
-    if (request.message === 'log') { 
-      console.log(content);
-    }
-    
-    if (request.message === 'alert') {
-      console.log(content);
-    }
-  }
-);
+});
