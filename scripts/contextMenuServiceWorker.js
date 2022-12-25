@@ -65,7 +65,7 @@ const readStream = async (reader) => {
 
 // generate an outline from the user's selection and URL
 const generateOutline = async (url = 'n/a', selection) => {
-  return await fetch(outlineUrl, {
+  return await fetch(OUTLINE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
