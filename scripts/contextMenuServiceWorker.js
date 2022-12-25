@@ -1,6 +1,6 @@
 // CONSTANTS
-const OUTLINE_URL = 'http://localhost:3000/api/outlines';
-const WEB_APP_URL = 'http://localhost:3000/outlines';
+const OUTLINE_URL = 'https://outline-next-4068o1v96-samuel-casey.vercel.app/api/outlines';
+const WEB_APP_URL = 'https://outline-next-4068o1v96-samuel-casey.vercel.app/outlines';
 
 // Send a message to the user's current tab with status of outline generation
 const sendMessage = (content, type) => {
