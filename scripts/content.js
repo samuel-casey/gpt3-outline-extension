@@ -4,6 +4,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   if (request.message === 'log') {
     console.log(content);
+    alert(content);
     sendResponse({ status: 'success; generating outline...' });
   } else if (request.message === 'redirect') {
     // redirect to the new outline from contextMenuServiceWorker.js
